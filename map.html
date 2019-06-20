@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Map api</title>
+    <script type="text/javascript" src="vue.js"></script>
+
+
+  </head>
+  <body>
+    <div id="app">
+      From: <input type="text" name="" value="" v-model.lazy="origin">
+      To: <input type="text" name="" value="" v-model.lazy="destination">
+      <iframe v-bind:src="src()" width="100%" height="500px"></iframe>
+    </div>
+
+  </body>
+
+  <script type="text/javascript">
+    var vue_app = new Vue ({
+      el: "#app",
+      data: {
+        origin: "",
+        destination: "",
+        url: ""
+      },
+      methods: {
+        src: function() {
+          return this.url + "&origin" + this.origin + "&destination" + this.destination;
+         }
+      }
+    });
+
+  </script>
+
+</html>
