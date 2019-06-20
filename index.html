@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>upload-l</title>
+    <script type="text/javascript" src="vue.js"></script>
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" >
+    <script defer src = "https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+    <style media="screen">
+      input[type=text] {
+        width: 230px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        background-color: white;
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        padding: 12px 20px 12px 20px;
+        -webkit-transition: width 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
+        }
+        input[type=text]:focus {
+          width: 70%;
+        }
+        input {
+          margin: 3px;
+          margin-left: 100px !important;
+        }
+        .label {
+          color: white;
+          padding: 8px;
+          margin: 8px;
+          margin-left: 80px !important;
+          border-radius: 5px;
+          font-family: Arial;
+          width: 4%;
+        }
+        .success {
+          background-color: #4CAF50;
+        }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but upload-l doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <span class="label success">From:</span> <input type="text" name="search" placeholder="Latitudes, Longitudes" v-model.lazy="origin">
+    <span class="label success">To: </span><input type="text" name="search" placeholder="Latitudes, Longitudes" value="" v-model.lazy="destination">
+    <iframe v-bind:src="src()" width="100%" height="500px"></iframe>
+  </body>
+  <script type="text/javascript">
+    var vue_app = new Vue({
+      el: "#app",
+      data: {
+        origin: "",
+        destination: "",
+        url: ""
+      },
+      methods: {
+        src: function() {
+          return this.url + "&origin" + this.origin + "&destination" + this.destination;
+         }
+      }
+    });
+
+  </script>
+</html>
